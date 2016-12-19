@@ -8,6 +8,7 @@ This was created by Josh Mclaughlin to circumvent an issue with the MMM-PIR-Sens
 
 Setup:
 ---
+```
 * Add the following to your config:
                 {
                         module: 'MMM-PIR-Sensor',
@@ -23,6 +24,7 @@ Setup:
                 		fadeOutTime: 5000,
                         }
                 },
+```
 
 
 Hiding/unhiding is triggered by the "USER_PRESENCE" notifications sent by the MMM-PIR-Sensor modules written by Paul-Vincent Roll available at https://github.com/paviro/MMM-PIR-Sensor
