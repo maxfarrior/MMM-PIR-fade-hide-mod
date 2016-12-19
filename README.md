@@ -2,6 +2,8 @@ MM-Pir-Hide-All
 ===
 [MagicMirror](https://github.com/MichMich/MagicMirror) Module to hide everything on screen.
 
+This is a modification of the MM-Hide-All module (https://github.com/masters1222/mm-hide-all) by masters1222.  It requires the MMM-PIR-Sensor module (https://github.com/paviro/MMM-PIR-Sensor) by paviro to be installed as well, as the hiding/unhiding is triggered by the "USER_PRESENCE" notification sent.
+
 Setup:
 ---
 * Add the following to your config:
