@@ -2,34 +2,41 @@
 
 /* Magic Mirror
  * Module: MM Pir Hide All
- * By josh mclaughlin
+ * By Richard Kerber
  */
 
-Module.register("mm-pir-hide-all",{
+Module.register("MMM-PIR-Fade-HIDE",{
 
         defaults: {
                 fadeInTime: 1000,
 		fadeOutTime: 1000,
-        },
+		
+	},
+
+	getScripts: function() {
+		return ["modules/MMM-PIR-Fade-HIDE/js/jquery.js"];
+	},
 
 	getStyles: function() {
-		return ["mm-pir-hide-all-style.css"];
+		return ["MMM-PIR-Fade-HIDE.css"];
 	},
 
         notificationReceived: function(notification, payload, sender) {
                 if (notification === "USER_PRESENCE") {
 			if (payload){
-			this.hide(this.config.fadeOutTime);
+				$('#BLACK').fadeOut(this.config.fadeOutTime);
+				
 			}else{
-                        this.show(this.config.fadeInTime);
+				$('#BLACK').fadeIn(this.config.fadeInTime);
 			}
+			
                 }
-        },
+	},
+	
 	
 	getDom: function() {
 		var wrapper = document.createElement("div");
-		wrapper.className = "global-scrim";
-		this.hide();
+		wrapper.id = "BLACK";
 		return wrapper;
 	}
 
