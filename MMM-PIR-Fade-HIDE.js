@@ -8,9 +8,9 @@
 Module.register("MMM-PIR-Fade-HIDE",{
 
         defaults: {
-                fadeInTime: 1000,
-		fadeOutTime: 1000,
-		
+                fadeInTime: 5000,
+		fadeOutTime: 5000,
+		displayTime: 60000,
 	},
 
 	getScripts: function() {
@@ -23,14 +23,20 @@ Module.register("MMM-PIR-Fade-HIDE",{
 
         notificationReceived: function(notification, payload, sender) {
                 if (notification === "USER_PRESENCE") {
+			// If the USER_PRESENCE notification's 'payload' value is 'true', then...
 			if (payload){
+				// Fade OUT the black cover, causing modules to fade IN
 				$('#BLACK').fadeOut(this.config.fadeOutTime);
 				
-			}else{
-				$('#BLACK').fadeIn(this.config.fadeInTime);
+				// Pause for 'this.config.displayTime' milliseconds, then fade in the black cover (which hides the modules) 
+				setTimeout(function(fadeInDuration) {
+				
+				// Fade IN the black cover, causing modules to fade OUT
+				$('#BLACK').fadeIn(fadeInDuration);
+				
+				}, this.config.displayTime, this.config.fadeInTime); // The third parameter is sent to the setTimeout function
 			}
-			
-                }
+		}
 	},
 	
 	
